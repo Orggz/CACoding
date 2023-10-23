@@ -8,10 +8,7 @@ import use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface, ClearUserDataAccessInterface {
 
@@ -62,9 +59,11 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
     }
 
     @Override
-    public ArrayList<String> delete() {
+    public ArrayList<String> clear() {
+        ArrayList<String> user = new ArrayList<String>(accounts.keySet());
         accounts.clear();
-        return null;
+        save();
+        return user;
     }
 
     @Override

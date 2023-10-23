@@ -13,6 +13,8 @@ import use_case.clear_users.ClearOutputBoundary;
 import use_case.clear_users.ClearOutputData;
 import use_case.login.LoginOutputData;
 
+import javax.swing.*;
+
 public class ClearPresenter implements ClearOutputBoundary {
     private final ClearViewModel clearViewModel;
 
@@ -21,15 +23,12 @@ public class ClearPresenter implements ClearOutputBoundary {
     }
 
     @Override
-    public void prepareSuccessView(ClearOutputData response) {
-        this.clearViewModel.setState(clearViewModel.getState());
-        this.clearViewModel.firePropertyChanged();
+    public void prepareSuccessView(ClearOutputData user) {
+        JOptionPane.showMessageDialog(null, user.getUsername());
     }
 
     @Override
     public void prepareFailView(String error) {
-        ClearState clearState = clearViewModel.getState();
-        clearState.setUsernameError(error);
-        clearViewModel.firePropertyChanged();
+
     }
 }

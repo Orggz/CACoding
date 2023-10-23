@@ -10,5 +10,5 @@ public interface ClearUserDataAccessInterface {
     boolean existsByName(String identifier);
 
     void save(User user);
-    ArrayList<String> delete();
+    ArrayList<String> clear();
 }
