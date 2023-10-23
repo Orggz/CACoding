@@ -41,6 +41,10 @@ public class SignupState {
         return repeatPassword;
     }
 
+    public String clearUsername() {username = ""; return null; }
+
+    public String clearPassword() {password = ""; return null; }
+
     public String getRepeatPasswordError() {
         return repeatPasswordError;
     }
